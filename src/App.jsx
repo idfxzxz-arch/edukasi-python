@@ -52,16 +52,16 @@ function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <span className="grid h-10 w-10 place-items-center rounded bg-blue-600 text-white">
-            <Code2 size={22} />
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
+        <Link to="/" className="flex min-w-0 items-center gap-3" onClick={() => setOpen(false)}>
+          <span className="grid h-9 w-9 shrink-0 place-items-center rounded bg-blue-600 text-white sm:h-10 sm:w-10">
+            <Code2 size={20} />
           </span>
           <span className="min-w-0">
-            <span className="block text-base font-extrabold text-slate-950 sm:text-lg">
+            <span className="block truncate text-sm font-extrabold text-slate-950 sm:text-lg">
               Python Learning Portal
             </span>
-            <span className="block text-xs font-medium text-slate-500">
+            <span className="block truncate text-[11px] font-medium text-slate-500 sm:text-xs">
               Belajar Python bertahap
             </span>
           </span>
@@ -83,8 +83,8 @@ function Navbar() {
       </div>
 
       {open && (
-        <nav className="border-t border-slate-200 bg-white px-4 py-3 lg:hidden">
-          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-2 sm:grid-cols-3">
+        <nav className="max-h-[calc(100vh-65px)] overflow-y-auto border-t border-slate-200 bg-white px-4 py-3 lg:hidden">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-2 min-[420px]:grid-cols-2 sm:grid-cols-3">
             {navItems.map((item) => (
               <NavItem key={item.to} item={item} onClick={() => setOpen(false)} mobile />
             ))}
@@ -170,15 +170,15 @@ function Shell() {
 function PageHeader({ eyebrow, title, description, icon: Icon = GraduationCap }) {
   return (
     <section className="border-b border-slate-200 bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="flex max-w-3xl items-start gap-4">
-          <span className="grid h-12 w-12 shrink-0 place-items-center rounded bg-blue-50 text-blue-700">
-            <Icon size={24} />
+      <div className="mx-auto max-w-7xl px-4 py-9 sm:px-6 sm:py-12 lg:px-8">
+        <div className="flex max-w-3xl items-start gap-3 sm:gap-4">
+          <span className="grid h-10 w-10 shrink-0 place-items-center rounded bg-blue-50 text-blue-700 sm:h-12 sm:w-12">
+            <Icon size={22} />
           </span>
           <div>
             <p className="text-sm font-bold uppercase tracking-wide text-blue-700">{eyebrow}</p>
-            <h1 className="mt-2 text-3xl font-extrabold text-slate-950 sm:text-4xl">{title}</h1>
-            <p className="mt-4 leading-7 text-slate-600">{description}</p>
+            <h1 className="mt-2 text-2xl font-extrabold leading-tight text-slate-950 sm:text-4xl">{title}</h1>
+            <p className="mt-3 leading-7 text-slate-600 sm:mt-4">{description}</p>
           </div>
         </div>
       </div>
@@ -192,30 +192,30 @@ function HomePage() {
   return (
     <>
       <section className="bg-white">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-20">
+        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-20">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-sm font-bold text-blue-700">
+            <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700 sm:text-sm">
               <GraduationCap size={16} />
-              Portal belajar Python tanpa login
+              <span className="truncate">Portal belajar Python tanpa login</span>
             </div>
-            <h1 className="mt-5 max-w-3xl text-4xl font-extrabold leading-tight text-slate-950 sm:text-5xl">
+            <h1 className="mt-5 max-w-3xl text-3xl font-extrabold leading-tight text-slate-950 sm:text-5xl">
               Python Learning Portal
             </h1>
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:mt-5 sm:text-lg sm:leading-8">
               Belajar Python dari nol dengan materi ringkas, contoh kode, latihan,
               quiz pilihan ganda, roadmap, dan mini project yang langsung bisa dipraktikkan.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 to="/materi"
-                className="inline-flex items-center justify-center gap-2 rounded bg-blue-600 px-5 py-3 text-sm font-bold text-white shadow-soft transition hover:bg-blue-700"
+                className="inline-flex w-full items-center justify-center gap-2 rounded bg-blue-600 px-5 py-3 text-sm font-bold text-white shadow-soft transition hover:bg-blue-700 sm:w-auto"
               >
                 Mulai Belajar
                 <ArrowRight size={18} />
               </Link>
               <Link
                 to="/roadmap"
-                className="inline-flex items-center justify-center gap-2 rounded border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-700 transition hover:bg-slate-100"
+                className="inline-flex w-full items-center justify-center gap-2 rounded border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-700 transition hover:bg-slate-100 sm:w-auto"
               >
                 Lihat Roadmap
                 <Map size={18} />
@@ -227,15 +227,15 @@ function HomePage() {
             <img
               src="/python-learning-hero.png"
               alt="Ilustrasi workspace belajar Python"
-              className="aspect-video w-full bg-slate-50 object-contain"
+              className="aspect-[4/3] w-full bg-slate-50 object-contain sm:aspect-video"
             />
-            <div className="border-t border-slate-200 bg-slate-950 p-4">
+            <div className="border-t border-slate-200 bg-slate-950 p-3 sm:p-4">
               <div className="mb-3 flex items-center gap-2">
                 <span className="h-3 w-3 rounded-full bg-red-400" />
                 <span className="h-3 w-3 rounded-full bg-amber-400" />
                 <span className="h-3 w-3 rounded-full bg-emerald-400" />
               </div>
-              <div className="max-h-36 overflow-hidden">
+              <div className="max-h-28 overflow-hidden sm:max-h-36">
                 <CodeBlock
                   code={
                     "topics = ['Dasar', 'Loop', 'Data', 'OOP']\n\nfor topic in topics:\n    print(f'Belajar {topic}')\n\nprint('Siap membuat project Python!')"
@@ -248,7 +248,7 @@ function HomePage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-4 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
           <StatCard value={String(materials.length)} label="Materi Python" tone="blue" />
           <StatCard value="5" label="Soal quiz" tone="green" />
           <StatCard value="3" label="Mini project" tone="yellow" />
@@ -281,9 +281,9 @@ function StatCard({ value, label, tone }) {
   }[tone];
 
   return (
-    <div className="rounded border border-slate-200 bg-white p-5">
-      <div className={`inline-flex rounded px-3 py-1 text-2xl font-extrabold ${toneClass}`}>{value}</div>
-      <p className="mt-3 text-sm font-bold text-slate-600">{label}</p>
+    <div className="rounded border border-slate-200 bg-white p-4 sm:p-5">
+      <div className={`inline-flex rounded px-3 py-1 text-xl font-extrabold sm:text-2xl ${toneClass}`}>{value}</div>
+      <p className="mt-3 text-xs font-bold text-slate-600 sm:text-sm">{label}</p>
     </div>
   );
 }
@@ -292,7 +292,7 @@ function SectionTitle({ title, description, action }) {
   return (
     <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
       <div>
-        <h2 className="text-2xl font-extrabold text-slate-950">{title}</h2>
+        <h2 className="text-xl font-extrabold text-slate-950 sm:text-2xl">{title}</h2>
         <p className="mt-2 max-w-2xl leading-7 text-slate-600">{description}</p>
       </div>
       {action}
@@ -304,7 +304,7 @@ function LinkButton({ to, label }) {
   return (
     <Link
       to={to}
-      className="inline-flex items-center justify-center gap-2 rounded border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-bold text-blue-700 transition hover:bg-blue-100"
+      className="inline-flex w-full items-center justify-center gap-2 rounded border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-bold text-blue-700 transition hover:bg-blue-100 sm:w-auto"
     >
       {label}
       <ArrowRight size={16} />
@@ -330,7 +330,7 @@ function MaterialsPage() {
         description="Pilih materi sesuai kebutuhan. Setiap artikel berisi penjelasan singkat, konsep inti, dan contoh kode yang mudah dicoba."
         icon={BookOpen}
       />
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-9 sm:px-6 sm:py-12 lg:px-8">
         <div className="space-y-10">
           {Object.entries(groups).map(([category, items]) => (
             <div key={category}>
@@ -352,16 +352,16 @@ function MaterialCard({ material }) {
   return (
     <Link
       to={`/materi/${material.id}`}
-      className="group flex h-full flex-col rounded border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-soft"
+      className="group flex h-full flex-col rounded border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-soft sm:p-5"
     >
-      <div className="flex items-center justify-between gap-3">
+      <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
         <span className={`rounded border px-3 py-1 text-xs font-bold ${colorStyles[material.color]}`}>
           {material.category}
         </span>
         <span className="text-xs font-bold text-slate-500">{material.duration}</span>
       </div>
-      <h3 className="mt-4 text-lg font-extrabold text-slate-950">{material.title}</h3>
-      <p className="mt-2 flex-1 leading-7 text-slate-600">{material.summary}</p>
+      <h3 className="mt-4 text-base font-extrabold text-slate-950 sm:text-lg">{material.title}</h3>
+      <p className="mt-2 flex-1 text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">{material.summary}</p>
       <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 text-sm font-bold">
         <span className="text-slate-500">{material.level}</span>
         <span className="inline-flex items-center gap-2 text-blue-700 group-hover:gap-3">
@@ -387,8 +387,8 @@ function MaterialDetailPage() {
         description={material.summary}
         icon={BookOpen}
       />
-      <section className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_320px] lg:px-8">
-        <article className="rounded border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+      <section className="mx-auto grid max-w-7xl gap-6 px-4 py-9 sm:px-6 sm:py-12 lg:grid-cols-[1fr_320px] lg:gap-8 lg:px-8">
+        <article className="rounded border border-slate-200 bg-white p-4 shadow-sm sm:p-8">
           <div className="article">
             <h2>Konsep Utama</h2>
             {material.content.map((paragraph) => (
@@ -396,7 +396,7 @@ function MaterialDetailPage() {
             ))}
             <h2>Contoh Kode</h2>
           </div>
-          <div className="mt-5 rounded border border-slate-200 bg-slate-950 p-4">
+          <div className="mt-5 rounded border border-slate-200 bg-slate-950 p-3 sm:p-4">
             <CodeBlock code={material.code} />
           </div>
         </article>
@@ -439,10 +439,10 @@ function RoadmapPage() {
         description="Ikuti urutan belajar dari setup dasar sampai mini project agar progres tetap jelas dan tidak melompat terlalu jauh."
         icon={Map}
       />
-      <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-5xl px-4 py-9 sm:px-6 sm:py-12 lg:px-8">
         <div className="space-y-4">
           {roadmap.map((step, index) => (
-            <div key={step} className="grid gap-4 rounded border border-slate-200 bg-white p-5 shadow-sm sm:grid-cols-[64px_1fr]">
+            <div key={step} className="grid gap-3 rounded border border-slate-200 bg-white p-4 shadow-sm sm:grid-cols-[64px_1fr] sm:gap-4 sm:p-5">
               <div className="grid h-12 w-12 place-items-center rounded bg-blue-600 text-lg font-extrabold text-white">
                 {index + 1}
               </div>
@@ -467,7 +467,7 @@ function CodeExamplesPage() {
         description="Gunakan contoh ini untuk memahami pola sintaks umum dan membiasakan diri membaca kode Python."
         icon={Code2}
       />
-      <section className="mx-auto grid max-w-7xl gap-5 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:px-8">
+      <section className="mx-auto grid max-w-7xl gap-5 px-4 py-9 sm:px-6 sm:py-12 lg:grid-cols-2 lg:px-8">
         {codeExamples.map((example) => (
           <div key={example.title} className="rounded border border-slate-200 bg-white p-5 shadow-sm">
             <div className="flex items-center justify-between gap-4">
@@ -476,7 +476,7 @@ function CodeExamplesPage() {
                 {example.topic}
               </span>
             </div>
-            <div className="mt-4 rounded border border-slate-200 bg-slate-950 p-4">
+            <div className="mt-4 rounded border border-slate-200 bg-slate-950 p-3 sm:p-4">
               <CodeBlock code={example.code} />
             </div>
           </div>
@@ -502,21 +502,21 @@ function ExercisesPage() {
         description="Kerjakan soal-soal kecil ini setelah membaca materi. Pilih jawaban, lalu lihat apakah benar atau perlu diperbaiki."
         icon={ListChecks}
       />
-      <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mb-5 grid gap-4 rounded border border-emerald-100 bg-emerald-50 p-5 sm:grid-cols-3">
+      <section className="mx-auto max-w-5xl px-4 py-9 sm:px-6 sm:py-12 lg:px-8">
+        <div className="mb-5 grid grid-cols-3 gap-3 rounded border border-emerald-100 bg-emerald-50 p-4 sm:gap-4 sm:p-5">
           <div>
-            <p className="text-sm font-bold text-emerald-700">Benar</p>
-            <p className="mt-1 text-3xl font-extrabold text-slate-950">{correctCount}</p>
+            <p className="text-xs font-bold text-emerald-700 sm:text-sm">Benar</p>
+            <p className="mt-1 text-2xl font-extrabold text-slate-950 sm:text-3xl">{correctCount}</p>
           </div>
           <div>
-            <p className="text-sm font-bold text-emerald-700">Dijawab</p>
-            <p className="mt-1 text-3xl font-extrabold text-slate-950">
+            <p className="text-xs font-bold text-emerald-700 sm:text-sm">Dijawab</p>
+            <p className="mt-1 text-2xl font-extrabold text-slate-950 sm:text-3xl">
               {answeredCount} / {exercises.length}
             </p>
           </div>
           <div>
-            <p className="text-sm font-bold text-emerald-700">Akurasi</p>
-            <p className="mt-1 text-3xl font-extrabold text-slate-950">
+            <p className="text-xs font-bold text-emerald-700 sm:text-sm">Akurasi</p>
+            <p className="mt-1 text-2xl font-extrabold text-slate-950 sm:text-3xl">
               {answeredCount ? Math.round((correctCount / answeredCount) * 100) : 0}%
             </p>
           </div>
@@ -524,16 +524,16 @@ function ExercisesPage() {
 
         <div className="grid gap-5">
           {exercises.map((exercise, index) => (
-            <div key={exercise.task} className="rounded border border-slate-200 bg-white p-5 shadow-sm">
-              <div className="flex gap-4">
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded bg-emerald-50 font-extrabold text-emerald-700">
+            <div key={exercise.task} className="rounded border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+              <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded bg-emerald-50 font-extrabold text-emerald-700 sm:h-10 sm:w-10">
                   {index + 1}
                 </span>
                 <div className="min-w-0 flex-1">
                   <h2 className="font-extrabold text-slate-950">Latihan {index + 1}</h2>
                   <p className="mt-1 leading-7 text-slate-600">{exercise.task}</p>
 
-                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  <div className="mt-4 grid gap-2 sm:grid-cols-2 sm:gap-3">
                     {exercise.options.map((option) => {
                       const selected = answers[index] === option;
                       const answered = Boolean(answers[index]);
@@ -543,7 +543,7 @@ function ExercisesPage() {
                         <button
                           key={option}
                           className={[
-                            "rounded border px-4 py-3 text-left text-sm font-bold transition",
+                            "rounded border px-3 py-3 text-left text-sm font-bold transition sm:px-4",
                             selected && correct
                               ? "border-emerald-200 bg-emerald-50 text-emerald-800"
                               : selected
@@ -605,8 +605,8 @@ function QuizPage() {
         description="Pilih jawaban untuk setiap soal. Skor akan diperbarui langsung tanpa backend atau database."
         icon={Brain}
       />
-      <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mb-5 rounded border border-blue-100 bg-blue-50 p-5">
+      <section className="mx-auto max-w-5xl px-4 py-9 sm:px-6 sm:py-12 lg:px-8">
+        <div className="mb-5 rounded border border-blue-100 bg-blue-50 p-4 sm:p-5">
           <p className="text-sm font-bold text-blue-700">Skor saat ini</p>
           <p className="mt-1 text-3xl font-extrabold text-slate-950">
             {score} / {quizzes.length}
@@ -614,11 +614,11 @@ function QuizPage() {
         </div>
         <div className="space-y-5">
           {quizzes.map((quiz, index) => (
-            <div key={quiz.question} className="rounded border border-slate-200 bg-white p-5 shadow-sm">
+            <div key={quiz.question} className="rounded border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
               <h2 className="font-extrabold text-slate-950">
                 {index + 1}. {quiz.question}
               </h2>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="mt-4 grid gap-2 sm:grid-cols-2 sm:gap-3">
                 {quiz.options.map((option) => {
                   const isSelected = selected[index] === option;
                   const isCorrect = option === quiz.answer;
@@ -627,7 +627,7 @@ function QuizPage() {
                     <button
                       key={option}
                       className={[
-                        "flex items-center justify-between rounded border px-4 py-3 text-left text-sm font-bold transition",
+                        "flex items-center justify-between gap-3 rounded border px-3 py-3 text-left text-sm font-bold transition sm:px-4",
                         isSelected && isCorrect
                           ? "border-emerald-200 bg-emerald-50 text-emerald-800"
                           : isSelected
@@ -664,7 +664,7 @@ function MiniProjectPage() {
         description="Project kecil membantu menggabungkan beberapa konsep dalam satu program yang terasa nyata."
         icon={Rocket}
       />
-      <section className="mx-auto grid max-w-7xl gap-5 px-4 py-12 sm:px-6 lg:grid-cols-3 lg:px-8">
+      <section className="mx-auto grid max-w-7xl gap-5 px-4 py-9 sm:px-6 sm:py-12 lg:grid-cols-3 lg:px-8">
         {projects.map((project) => (
           <div key={project.title} className="rounded border border-slate-200 bg-white p-5 shadow-sm">
             <span className="rounded bg-amber-50 px-3 py-1 text-xs font-bold text-amber-700">
@@ -695,7 +695,7 @@ function TipsPage() {
         description="Gunakan kebiasaan kecil yang konsisten agar proses belajar tidak berhenti di membaca materi saja."
         icon={Lightbulb}
       />
-      <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-5xl px-4 py-9 sm:px-6 sm:py-12 lg:px-8">
         <div className="grid gap-4">
           {tips.map((tip, index) => (
             <div key={tip} className="flex gap-4 rounded border border-slate-200 bg-white p-5 shadow-sm">
@@ -720,7 +720,7 @@ function AboutPage() {
         description="Website ini dibuat sebagai portal edukasi programming statis, ringan, dan mudah dihosting."
         icon={Layers}
       />
-      <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-5xl px-4 py-9 sm:px-6 sm:py-12 lg:px-8">
         <div className="rounded border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
           <div className="article">
             <h2>Tujuan</h2>
@@ -761,7 +761,7 @@ function NotFoundPage() {
 
 function CodeBlock({ code }) {
   return (
-    <pre className="overflow-x-auto text-sm leading-7 text-slate-100">
+    <pre className="overflow-x-auto text-xs leading-6 text-slate-100 sm:text-sm sm:leading-7">
       <code>{code}</code>
     </pre>
   );
