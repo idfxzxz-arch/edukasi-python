@@ -223,19 +223,19 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded border border-slate-200 bg-white shadow-soft">
+          <div className="overflow-hidden rounded border border-slate-200 bg-white shadow-soft">
             <img
               src="/python-learning-hero.png"
               alt="Ilustrasi workspace belajar Python"
-              className="aspect-[4/3] w-full object-cover"
+              className="aspect-video w-full bg-slate-50 object-contain"
             />
-            <div className="absolute inset-x-4 bottom-4 rounded border border-white/10 bg-slate-950/95 p-4 shadow-soft backdrop-blur">
+            <div className="border-t border-slate-200 bg-slate-950 p-4">
               <div className="mb-3 flex items-center gap-2">
                 <span className="h-3 w-3 rounded-full bg-red-400" />
                 <span className="h-3 w-3 rounded-full bg-amber-400" />
                 <span className="h-3 w-3 rounded-full bg-emerald-400" />
               </div>
-              <div className="max-h-40 overflow-hidden">
+              <div className="max-h-36 overflow-hidden">
                 <CodeBlock
                   code={
                     "topics = ['Dasar', 'Loop', 'Data', 'OOP']\n\nfor topic in topics:\n    print(f'Belajar {topic}')\n\nprint('Siap membuat project Python!')"
